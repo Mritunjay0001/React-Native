@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 
 // import type {PropsWithChildren} from 'react';
 import {
@@ -11,17 +11,21 @@ import {
 import MyData from './components/MyData';
 
 
-const name= "akshay";
-let age= 20;
-var email= "akshay@gmail.com";
+// const name= "akshay";
+// let age= 20;
+// var email= "akshay@gmail.com";
 
-const pressCheck=()=>{
-  console.warn("Button Pressed")
-}
+// const pressCheck=()=>{
+//   console.warn("Button Pressed")
+// }
 
 
 function App() {
-  
+  const [name,setName]=useState("Akshay Chauhan")
+
+  function updateIt(){
+    setName("rajput")
+  }
   return (
 //     <View>
 //       {/* this is the first thing ---------> */}
@@ -56,8 +60,20 @@ function App() {
 <View>
    {/* ------WE ARE GOING TO ADD BUTTON AND ALL------- */}
 
-   <Text style={{fontSize:30}}>Button and OnPress</Text>
-   <Button title='Press Me' onPress={pressCheck} color={'black'}></Button>
+   {/* <Text style={{fontSize:30}}>Button and OnPress</Text>
+   <Button title='Press Me' onPress={pressCheck} color={'black'}></Button> */}
+
+ {/* ------------USSTATE IN NATIVE AND UPDATE IN ONPRESS---- */}
+
+ <Text style={{fontSize:30}}>Update The Name</Text>
+ <Text style={{fontSize:20}}>{name}</Text>
+
+ {/* -------this is how we can set name and update name with parameter--- */}
+ {/* <Button title='press' onPress={()=>setName("Sonu")}></Button> */}
+
+ {/* -----------this is how wer can update date with function call---- */}
+<Button title='press' onPress={updateIt}></Button>
+
 </View>
   
   );
