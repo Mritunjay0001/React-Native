@@ -23,9 +23,10 @@ import MyData from './components/MyData';
 function App() {
   const [name,setName]=useState("Akshay Chauhan")
 
-  function updateIt(){
-    setName("rajput")
-  }
+  // function updateIt(){
+  //   setName("rajput")
+  // }
+  
   return (
 //     <View>
 //       {/* this is the first thing ---------> */}
@@ -65,18 +66,34 @@ function App() {
 
  {/* ------------USSTATE IN NATIVE AND UPDATE IN ONPRESS---- */}
 
- <Text style={{fontSize:30}}>Update The Name</Text>
- <Text style={{fontSize:20}}>{name}</Text>
+ {/* <Text style={{fontSize:30}}>Update The Name</Text>
+ <Text style={{fontSize:20}}>{name}</Text> */}
 
  {/* -------this is how we can set name and update name with parameter--- */}
  {/* <Button title='press' onPress={()=>setName("Sonu")}></Button> */}
 
  {/* -----------this is how wer can update date with function call---- */}
-<Button title='press' onPress={updateIt}></Button>
+{/* <Button title='press' onPress={updateIt}></Button> */}
 
+
+ {/* -------------PROPS and update IN NATIVE------ */}
+
+ <Text style={{fontSize:30}}>Props In Native</Text>
+ <Button title='update' onPress={()=>setName("sonu rajput")}></Button>
+ <PropsData name={name}/>
 </View>
   
   );
+}
+
+const PropsData=(props)=>{
+
+return (
+  
+  <View style={{backgroundColor:"red", padding:10}}>
+    <Text style={{fontSize:30}}>{props.name}</Text>
+  </View>
+)
 }
 
 
