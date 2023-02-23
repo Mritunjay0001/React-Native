@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 
 // import type {PropsWithChildren} from 'react';
-import {Button,Text,View,StyleSheet, TextInput} from 'react-native';
+import {Button,Text,View,StyleSheet, TextInput, FlatList} from 'react-native';
 import MyData from './components/MyData';
 
 
@@ -17,21 +17,40 @@ import MyData from './components/MyData';
 
 function App() {
   // const [name,setName]=useState("Akshay Chauhan")
-  const [name,setName]=useState("")
-  const [email,setEmail]=useState("")
-  const [password,setPassword]=useState("")
-  const [display, setDisplay]=useState(false);
+  // const [name,setName]=useState("")
+  // const [email,setEmail]=useState("")
+  // const [password,setPassword]=useState("")
+  // const [display, setDisplay]=useState(false);
 
-  const resetData = () =>{
-    setDisplay(false);
-    setEmail(false);
-    setName(false);
-    setPassword(false)
-  }
+  // const resetData = () =>{
+  //   setDisplay(false);
+  //   setEmail(false);
+  //   setName(false);
+  //   setPassword(false)
+  // }
 
   // function updateIt(){
   //   setName("rajput")
   // }
+
+  const users= [
+    {
+      id:1,
+      name:"Akshay"
+    },
+    {
+      id:2,
+      name:"Santosh"
+    },
+    {
+      id:3,
+      name:"Govind"
+    },
+    {
+      id:4,
+      name:"Satya"
+    }
+  ]
   
   return (
 //     <View>
@@ -114,7 +133,7 @@ function App() {
 
             {/* ----------FORM IN NATIVE--------        */}
 
-    <Text style={{fontSize:30, color:"white",marginTop:10, backgroundColor:"teal",padding:20,borderRadius:20, textAlign: 'center'}}>Simple Form</Text>       
+    {/* <Text style={{fontSize:30, color:"white",marginTop:10, backgroundColor:"teal",padding:20,borderRadius:20, textAlign: 'center'}}>Simple Form</Text>       
     <TextInput 
     placeholder='Enter user Name'
     style={styles.textInput }
@@ -150,7 +169,19 @@ function App() {
         <Text style={{fontSize:20}}>User Password Is : {password}</Text>
       </View>:null
     }
-   </View>
+   </View> */}
+
+      
+      {/* ---------------MAKING LIST IN NATIVE-------- */}
+     
+      <Text style={{fontSize:20, color:"white",marginTop:10, backgroundColor:"teal",padding:20,borderRadius:20, textAlign: 'center'}}>LIST WITH FLAT LIST COMPONENTS</Text> 
+      <FlatList 
+      data={users}
+      renderItem={({item})=> <Text>{item.name}</Text>}
+      />
+
+     
+          
 </View>
   
   );
