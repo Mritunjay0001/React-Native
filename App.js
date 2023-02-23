@@ -18,6 +18,16 @@ import MyData from './components/MyData';
 function App() {
   // const [name,setName]=useState("Akshay Chauhan")
   const [name,setName]=useState("")
+  const [email,setEmail]=useState("")
+  const [password,setPassword]=useState("")
+  const [display, setDisplay]=useState(false);
+
+  const resetData = () =>{
+    setDisplay(false);
+    setEmail(false);
+    setName(false);
+    setPassword(false)
+  }
 
   // function updateIt(){
   //   setName("rajput")
@@ -88,7 +98,7 @@ function App() {
 
 
     {/* -------GET THE INPUT VALUE | HANDLING THE TEXT-------- */}
-    <Text style={{fontSize:30, color:"white",marginTop:10, backgroundColor:"teal",padding:20,borderRadius:20, textAlign: 'center'}}>Get text input value</Text>
+    {/* <Text style={{fontSize:30, color:"white",marginTop:10, backgroundColor:"teal",padding:20,borderRadius:20, textAlign: 'center'}}>Get text input value</Text>
 
     <Text style={{fontSize:30, color:"red",marginTop:10, backgroundColor:"black",padding:20,borderRadius:20, textAlign: 'center'}}>Your Name IS : {name} </Text>
 
@@ -99,11 +109,62 @@ function App() {
     onChangeText={(text)=>setName(text)}
     />
     <Button title='CLEAR NAME' onPress={()=>setName('')}/>
-                  
+                   */}
+
+
+            {/* ----------FORM IN NATIVE--------        */}
+
+    <Text style={{fontSize:30, color:"white",marginTop:10, backgroundColor:"teal",padding:20,borderRadius:20, textAlign: 'center'}}>Simple Form</Text>       
+    <TextInput 
+    placeholder='Enter user Name'
+    style={styles.textInput }
+    onChangeText={(text)=>setName(text)}
+    value={name}
+    /> 
+
+<TextInput 
+    placeholder='Enter user Email'
+    style={styles.textInput }
+    onChangeText={(text)=>setEmail(text)}
+    value={email}
+    /> 
+
+<TextInput 
+    placeholder='Enter user Password'
+    style={styles.textInput }
+    onChangeText={(text)=>setPassword(text)}
+    secureTextEntry={true}
+    value={password}
+    /> 
+   <View style={{marginTop:10,marginBottom:10}}>
+   <Button color={"green"} title='Print detail' onPress={()=>setDisplay(true)} />
+   </View>
+   <Button color={"red"} title='clear detail'  onPress={()=>setDisplay(resetData)} />
+
+   <View>
+    {
+      display ?
+      <View>
+        <Text style={{fontSize:20}}>User Name Is : {name}</Text>
+        <Text style={{fontSize:20}}>User Email Is : {email}</Text>
+        <Text style={{fontSize:20}}>User Password Is : {password}</Text>
+      </View>:null
+    }
+   </View>
 </View>
   
   );
 }
+
+const styles = StyleSheet.create({
+  textInput:{
+    fontSize:20, 
+    color:"black",
+    borderWidth:2,
+    marginTop:10,
+    borderRadius:20
+  }
+})
 
 // const styles = StyleSheet.create({
 //   textBox:{
