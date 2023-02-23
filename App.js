@@ -2,12 +2,7 @@
 import React, { useState } from 'react';
 
 // import type {PropsWithChildren} from 'react';
-import {
-
-  Text,
- Button,
-  View,
-} from 'react-native';
+import {Button,Text,View,StyleSheet} from 'react-native';
 import MyData from './components/MyData';
 
 
@@ -78,23 +73,49 @@ function App() {
 
  {/* -------------PROPS and update IN NATIVE------ */}
 
- <Text style={{fontSize:30}}>Props In Native</Text>
+ {/* <Text style={{fontSize:30}}>Props In Native</Text>
  <Button title='update' onPress={()=>setName("sonu rajput")}></Button>
- <PropsData name={name}/>
+ <PropsData name={name}/> */}
+
+  {/* -----------STYLING IN NATIVE------- */}
+               {/* Inline style */}
+  <Text style={{fontSize:30, color:"red",marginTop:10, backgroundColor:"teal",padding:20,borderRadius:20, textAlign: 'center'}}>Styling In Native</Text>
+
+                 {/* Class components styling  */}
+    <Text style={styles.textBox}>Wow </Text>       
+    
+                  
 </View>
   
   );
 }
 
-const PropsData=(props)=>{
-
-return (
+const styles = StyleSheet.create({
+  textBox:{
+    color:"blue",
+    fontSize:30,
+    // marginLeft:50,
+    backgroundColor:"pink",
+    padding:10,
+    borderRadius:20,
+    marginTop:10,
+    textAlignVertical:'center',
+    textAlign: 'center'
+    
+  }
   
-  <View style={{backgroundColor:"red", padding:10}}>
-    <Text style={{fontSize:30}}>{props.name}</Text>
-  </View>
-)
-}
+})
+
+
+// const PropsData=(props)=>{
+
+// return (
+  
+//   <View style={{backgroundColor:"red", padding:10}}>
+//     <Text style={{fontSize:30}}>{props.name}</Text>
+//   </View>
+// )
+// }
 
 
 // const Some=()=>{
