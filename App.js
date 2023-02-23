@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 
 // import type {PropsWithChildren} from 'react';
-import {Button,Text,View,StyleSheet} from 'react-native';
+import {Button,Text,View,StyleSheet, TextInput} from 'react-native';
 import MyData from './components/MyData';
 
 
@@ -16,7 +16,8 @@ import MyData from './components/MyData';
 
 
 function App() {
-  const [name,setName]=useState("Akshay Chauhan")
+  // const [name,setName]=useState("Akshay Chauhan")
+  const [name,setName]=useState("")
 
   // function updateIt(){
   //   setName("rajput")
@@ -79,32 +80,46 @@ function App() {
 
   {/* -----------STYLING IN NATIVE------- */}
                {/* Inline style */}
-  <Text style={{fontSize:30, color:"red",marginTop:10, backgroundColor:"teal",padding:20,borderRadius:20, textAlign: 'center'}}>Styling In Native</Text>
+  {/* <Text style={{fontSize:30, color:"red",marginTop:10, backgroundColor:"teal",padding:20,borderRadius:20, textAlign: 'center'}}>Styling In Native</Text> */}
 
                  {/* Class components styling  */}
-    <Text style={styles.textBox}>Wow </Text>       
-    
+    {/* <Text style={styles.textBox}>Wow </Text>        */}
+
+
+
+    {/* -------GET THE INPUT VALUE | HANDLING THE TEXT-------- */}
+    <Text style={{fontSize:30, color:"white",marginTop:10, backgroundColor:"teal",padding:20,borderRadius:20, textAlign: 'center'}}>Get text input value</Text>
+
+    <Text style={{fontSize:30, color:"red",marginTop:10, backgroundColor:"black",padding:20,borderRadius:20, textAlign: 'center'}}>Your Name IS : {name} </Text>
+
+    <TextInput
+    style={{fontSize:16, color:"blue", borderWidth:2,marginTop:10,}}
+    placeholder='Enter Your Input'
+    value={name}
+    onChangeText={(text)=>setName(text)}
+    />
+    <Button title='CLEAR NAME' onPress={()=>setName('')}/>
                   
 </View>
   
   );
 }
 
-const styles = StyleSheet.create({
-  textBox:{
-    color:"blue",
-    fontSize:30,
-    // marginLeft:50,
-    backgroundColor:"pink",
-    padding:10,
-    borderRadius:20,
-    marginTop:10,
-    textAlignVertical:'center',
-    textAlign: 'center'
+// const styles = StyleSheet.create({
+//   textBox:{
+//     color:"blue",
+//     fontSize:30,
+//     // marginLeft:50,
+//     backgroundColor:"pink",
+//     padding:10,
+//     borderRadius:20,
+//     marginTop:10,
+//     textAlignVertical:'center',
+//     textAlign: 'center'
     
-  }
+//   }
   
-})
+// })
 
 
 // const PropsData=(props)=>{
