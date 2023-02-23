@@ -33,24 +33,24 @@ function App() {
   //   setName("rajput")
   // }
 
-  const users= [
-    {
-      id:1,
-      name:"Akshay"
-    },
-    {
-      id:2,
-      name:"Santosh"
-    },
-    {
-      id:3,
-      name:"Govind"
-    },
-    {
-      id:4,
-      name:"Satya"
-    }
-  ]
+  // const users= [
+  //   {
+  //     id:1,
+  //     name:"Akshay"
+  //   },
+  //   {
+  //     id:2,
+  //     name:"Santosh"
+  //   },
+  //   {
+  //     id:3,
+  //     name:"Govind"
+  //   },
+  //   {
+  //     id:4,
+  //     name:"Satya"
+  //   }
+  // ]
   
   return (
 //     <View>
@@ -174,13 +174,22 @@ function App() {
       
       {/* ---------------MAKING LIST IN NATIVE-------- */}
      
-      <Text style={{fontSize:20, color:"white",marginTop:10, backgroundColor:"teal",padding:20,borderRadius:20, textAlign: 'center'}}>LIST WITH FLAT LIST COMPONENTS</Text> 
+      {/* <Text style={{fontSize:20, color:"white",marginTop:10, backgroundColor:"teal",padding:20,borderRadius:20, textAlign: 'center'}}>LIST WITH FLAT LIST COMPONENTS</Text> 
       <FlatList 
       data={users}
       renderItem={({item})=> <Text>{item.name}</Text>}
-      />
+      /> */}
 
-     
+
+       {/* ---------HOW TO MAKE GRID---- */}
+       <Text style={{fontSize:20, color:"white",marginTop:10, backgroundColor:"teal",padding:20,borderRadius:20, textAlign: 'center'}}>GRID WITH DYNAMIC DATA</Text>
+
+       <View style={{flex:1,flexDirection:"row",flexWrap:"wrap"}}>
+        <Text style={styles.item}>AKSHAY</Text>
+        <Text style={styles.item}>AKSHAY</Text>
+        <Text style={styles.item}>AKSHAY</Text>    
+        <Text style={styles.item}>AKSHAY</Text>   
+       </View>
           
 </View>
   
@@ -188,14 +197,28 @@ function App() {
 }
 
 const styles = StyleSheet.create({
-  textInput:{
-    fontSize:20, 
-    color:"black",
-    borderWidth:2,
-    marginTop:10,
-    borderRadius:20
+  item:{
+    fontSize:25,
+    backgroundColor:"pink",
+    color: "white",
+    margin:5,
+    padding:5,
+    width:120,
+    height:120,
+    textAlignVertical:"center",
+    textAlign:"center",
   }
 })
+
+// const styles = StyleSheet.create({
+//   textInput:{
+//     fontSize:20, 
+//     color:"black",
+//     borderWidth:2,
+//     marginTop:10,
+//     borderRadius:20
+//   }
+// })
 
 // const styles = StyleSheet.create({
 //   textBox:{
