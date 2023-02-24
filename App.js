@@ -33,24 +33,28 @@ function App() {
   //   setName("rajput")
   // }
 
-  // const users= [
-  //   {
-  //     id:1,
-  //     name:"Akshay"
-  //   },
-  //   {
-  //     id:2,
-  //     name:"Santosh"
-  //   },
-  //   {
-  //     id:3,
-  //     name:"Govind"
-  //   },
-  //   {
-  //     id:4,
-  //     name:"Satya"
-  //   }
-  // ]
+  const users= [
+    {
+      id:1,
+      name:"Akshay",
+      email:"akshay@gmail.com",
+    },
+    {
+      id:2,
+      name:"Santosh",
+      email:"santosh@gmail.com"
+    },
+    {
+      id:3,
+      name:"Govind",
+      email:"govind@gmail.com"
+    },
+    {
+      id:4,
+      name:"Satya",
+      email:"satya@gmail.com"
+    }
+  ]
   
   return (
 //     <View>
@@ -182,33 +186,69 @@ function App() {
 
 
        {/* ---------HOW TO MAKE GRID---- */}
-       <Text style={{fontSize:20, color:"white",marginTop:10, backgroundColor:"teal",padding:20,borderRadius:20, textAlign: 'center'}}>GRID WITH DYNAMIC DATA</Text>
+       {/* <Text style={{fontSize:20, color:"white",marginTop:10, backgroundColor:"teal",padding:20,borderRadius:20, textAlign: 'center'}}>GRID WITH DYNAMIC DATA</Text> */}
 
-       <View style={{flex:1,flexDirection:"row",flexWrap:"wrap"}}>
+       {/* <View style={{flex:1,flexDirection:"row",flexWrap:"wrap"}}>
         <Text style={styles.item}>AKSHAY</Text>
         <Text style={styles.item}>AKSHAY</Text>
         <Text style={styles.item}>AKSHAY</Text>    
         <Text style={styles.item}>AKSHAY</Text>   
-       </View>
-          
+       </View> */}
+
+
+         {/* --------COMPONENTS IN LOOP WITH FLATLIST------  */}
+
+         <Text style={{fontSize:20, color:"white",marginTop:10, backgroundColor:"teal",padding:20,borderRadius:20, textAlign: 'center'}}>COMPONENTS IN LOOP WITH FLATLIST</Text>
+         <FlatList 
+         data={users}
+         renderItem={({item})=><UserData item={item}/>}
+           
+         />
 </View>
   
   );
 }
 
+const UserData=(props)=>{
+const item=props.item;
+  return (
+    <View style={styles.box}>
+    <Text style={styles.item}>{item.name}</Text>
+    <Text style={styles.item}>{item.email}</Text>
+        
+  </View>
+  )
+}
+
 const styles = StyleSheet.create({
   item:{
-    fontSize:25,
-    backgroundColor:"pink",
-    color: "white",
-    margin:5,
-    padding:5,
-    width:120,
-    height:120,
-    textAlignVertical:"center",
-    textAlign:"center",
+    fontSize:20,
+    color:"black",
+    flex:1,
+    margin:2
+  },
+  box:{
+flexDirection:"row",
+borderWidth:2,
+marginTop:10,
+padding:10 
   }
 })
+
+
+// const styles = StyleSheet.create({
+//   item:{
+//     fontSize:25,
+//     backgroundColor:"pink",
+//     color: "white",
+//     margin:5,
+//     padding:5,
+//     width:120,
+//     height:120,
+//     textAlignVertical:"center",
+//     textAlign:"center",
+//   }
+// })
 
 // const styles = StyleSheet.create({
 //   textInput:{
