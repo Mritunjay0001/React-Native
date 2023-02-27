@@ -239,17 +239,48 @@ import Student from './components/Student';
 
 // ------------CLASS COMPONENTS IN NATIVE--------
 
+// class App extends Component{
+//   fruit =()=>{
+//     console.warn("Please eat")
+//   }
+//   render(){
+//     return (
+//       <View>
+//         <Text style={{fontSize:20,color:"black",textAlign:"center",backgroundColor:"grey",marginTop:10,padding:10,borderRadius:20}}>CLASS COMPONENTS</Text>
+//         <TextInput placeholder='ENTER SOMETHING' />
+//         <Button title='PRESS ME' onPress={this.fruit}></Button>
+//         <Student />
+//       </View>
+//     )
+//   }
+// }
+
+
+// ----------STATE AND PROPS IN CLASS COMPONENTS-----
+
 class App extends Component{
-  fruit =()=>{
-    console.warn("Please eat")
-  }
+    
+    constructor(){
+      super();
+      this.state={
+        name:"Akshay"
+      }
+    }
+
+    updateName(val){
+      this.setState({name:val});
+    }
+
   render(){
     return (
       <View>
-        <Text style={{fontSize:20,color:"black",textAlign:"center",backgroundColor:"grey",marginTop:10,padding:10,borderRadius:20}}>CLASS COMPONENTS</Text>
-        <TextInput placeholder='ENTER SOMETHING' />
-        <Button title='PRESS ME' onPress={this.fruit}></Button>
-        <Student />
+        <Text style={{fontSize:18,color:"black",textAlign:"center",backgroundColor:"grey",marginTop:10,padding:10,borderRadius:20}}>STATE AND PROPS IN CLASS COMPONENTS</Text>
+
+
+        <Text style={{fontSize:18,color:"black",textAlign:"center",backgroundColor:"grey",marginTop:10,padding:10,borderRadius:20}}>{this.state.name}</Text>
+        <TextInput placeholder='ENTER SOMETHING' onChangeText={(text)=>this.updateName(text)}/>
+        <Button title='PRESS ME'></Button>
+        <Student name={this.state.name}/>
       </View>
     )
   }
